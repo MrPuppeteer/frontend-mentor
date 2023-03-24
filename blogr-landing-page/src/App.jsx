@@ -1,8 +1,17 @@
 import '@fontsource/overpass';
 import '@fontsource/ubuntu';
 
+import Container from './components/Container';
+import Hero from './components/Hero';
+
 const App = () => {
-	return <h1 className="text-3xl font-bold underline">Hello world!</h1>;
+	return (
+		<Container>
+			<main>
+				<Hero />
+			</main>
+		</Container>
+	);
 };
 
 export default App;

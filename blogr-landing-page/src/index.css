@@ -2,6 +2,160 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-	font-size: 16px;
+@layer base {
+	:root {
+		--sz-content-side-spacing: 1.59rem;
+	}
+
+	*,
+	*::before,
+	*::after {
+		@apply box-border;
+	}
+
+	body,
+	#root {
+		@apply min-h-screen min-w-[375px];
+		@apply m-0 leading-normal text-[16px] overflow-x-hidden;
+
+		font-family: theme('fontFamily.overpass');
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+
+	#root {
+		@apply overflow-y-auto;
+	}
+
+	h1,
+	h2,
+	h3,
+	p {
+		@apply m-0;
+	}
+
+	picture,
+	img {
+		@apply block max-w-full;
+	}
+
+	input,
+	button {
+		font: inherit;
+	}
+
+	@media only screen and (min-width: 425px) {
+		:root {
+			--sz-content-side-spacing: 4rem;
+		}
+	}
+
+	@media only screen and (min-width: 768px) {
+		:root {
+			--sz-content-side-spacing: 8rem;
+		}
+	}
+
+	@media only screen and (min-width: 1024px) {
+		:root {
+			--sz-content-side-spacing: 8rem;
+		}
+	}
+
+	@media only screen and (min-width: 1400px) {
+		:root {
+			--sz-content-side-spacing: 10.4rem;
+		}
+	}
+}
+
+@layer components {
+	.hero {
+		@apply text-center flex flex-col items-center;
+		@apply text-neutral-w rounded-bl-[100px];
+		@apply pt-[12.5rem] px-[var(--sz-content-side-spacing)] pb-[9.72rem];
+
+		background: url('./assets/bg-pattern-intro-mobile.svg') no-repeat,
+			linear-gradient(
+				140deg,
+				theme('colors.gradient-vlr'),
+				theme('colors.gradient-lr')
+			);
+		background-size: 300% auto, cover;
+		background-position: 36.5% 40%, 50%;
+	}
+
+	.hero-title {
+		@apply text-[2.1rem] leading-[1.35] font-semibold;
+	}
+
+	.hero-message {
+		@apply mt-[0.7rem] text-[1.2rem] tracking-[-0.6px] leading-[1.2];
+	}
+
+	.hero-button {
+		@apply flex-grow min-w-0;
+		@apply inline-block w-fit rounded-[2rem] py-[0.7rem] px-[0.1rem] cursor-pointer;
+		@apply transition-colors duration-[120ms] ease-in-out;
+		@apply border border-solid border-neutral-w font-semibold;
+		@apply bg-neutral-w text-primary-lr;
+	}
+
+	.hero-button-outlined {
+		@apply bg-transparent text-neutral-w;
+	}
+
+	.hero-button:hover {
+		@apply bg-primary-vlr text-neutral-w border border-solid border-primary-vlr;
+	}
+
+	.hero-button-outlined:hover {
+		@apply bg-neutral-w text-primary-lr;
+	}
+
+	.hero-button:focus {
+		@apply outline outline-2 outline-neutral-w outline-offset-1;
+	}
+
+	@media only screen and (min-width: 500px) {
+		.self-unset {
+			align-self: unset;
+		}
+
+		.hero-button {
+			@apply min-w-[8.5rem];
+			@apply pt-[0.7rem] px-[1.2rem] pb-[0.6rem];
+		}
+	}
+
+	@media only screen and (min-width: 768px) {
+		.hero {
+			background-size: 200% auto, cover;
+		}
+
+		.hero-title {
+			@apply mt-8 text-[3rem] tracking-[-1.1px];
+		}
+	}
+
+	@media only screen and (min-width: 1024px) {
+		.hero {
+			background: url('./assets/bg-pattern-intro-mobile.svg') no-repeat,
+				linear-gradient(
+					90deg,
+					theme('colors.gradient-vlr') 20%,
+					theme('colors.gradient-lr') 75%
+				);
+			background-size: 220% auto, cover;
+			background-position: 25% 51%, 50%;
+		}
+
+		.hero-title {
+			@apply text-[3.8rem];
+		}
+
+		.hero-message {
+			@apply mt-[0.7rem] text-[1.3rem] tracking-[-0.35px] leading-[1.2];
+		}
+	}
 }

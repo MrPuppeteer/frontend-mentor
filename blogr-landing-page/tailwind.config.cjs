@@ -16,6 +16,7 @@ module.exports = {
 			'gradient-lr': '#ff3d54',
 			'gradient-vdgb': '#2c2d3f',
 			'gradient-vddb': '#3f4164',
+			transparent: 'transparent',
 		},
 		extend: {
 			fontFamily: {
